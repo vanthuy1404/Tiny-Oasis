@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{%block title%}Shop{%endblock%}
+{%block content%}
+<h2 class="text-success" style="width:100%; text-align: center; margin-top: 50px; margin-bottom: 20px;">Shop</h2>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse mb-2" id="navbarNav">
+          <ul class="navbar-nav mx-auto" style="font-size: 20px; font-weight: 500;"> <!-- Thêm lớp mx-auto để căn giữa -->
+              <li class="nav-item">
+                  <a class="nav-link" href="#" style="color: black;">Cactus</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#"style="color: black;">Echeveria</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#" style="color: black;">Mini succulent planter</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<div class="container mx-auto" style="width:60%;margin-bottom: 20px;">
+  <form class="d-flex" method="POST">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_text">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+  </form> 
+</div>
+{% if products_search_list %}
+<div class="container mb-2 search-results mt-5 border border-success rounded "style="padding: 20px";>
+    <button type="button" class="btn-close" aria-label="Close" onclick="closeSearchResults()"></button>
+    <h2 class="text-success">Search Results</h2>
+    <div class="row">
+        {% for product in products_search_list %}
+        <div class="col-md-3">
+            <div class="card mt-5">
+                <img src="{{ url_for('static', filename='images/'+product['image_path']) }}" class="card-img-top" alt="{{ product['name'] }}" style="width: 300px; height: 300px">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product['name'] }}</h5>
+                    <p class="text-muted">Price: ${{ product['price'] }}</p>
+                    <a href="/detail/{{ product['product_code'] }}" class="text-success" style="display: block; margin-bottom: 10px;">See more</a>
+                    <form action="/add_to_cart" method="POST">
+                        <input type="hidden" name="product_code" value="{{ product['product_code'] }}">
+                        <input type="hidden" name="product_name" value="{{ product['name'] }}">
+                        <input type="hidden" name="product_price" value="{{ product['price'] }}">
+                        <button type="submit" class="btn btn-success">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<script>
+    function closeSearchResults() {
+    document.querySelector('.search-results').style.display = 'none';
+}
+</script>
+
+<div class="container mb-2">
+  <div class="row">
+      {% for product in products %}
+      <div class="col-md-3">
+          <div class="card mt-5">
+              <img src="{{ url_for('static', filename='images/'+product['image_path']) }}" class="card-img-top" alt="{{ product['name'] }}" style="width: 300px; height: 300px">
+              <div class="card-body">
+                  <h5 class="card-title">{{ product['name'] }}</h5>
+                  <p class="text-muted">Price: ${{ product['price'] }}</p>
+                  <a href="/detail/{{ product['product_code'] }}" class="text-success" style="display: block; margin-bottom: 10px;">See more</a>
+                  <form action="/add_to_cart" method="POST">
+                    <input type="hidden" name="product_code" value="{{ product['product_code'] }}">
+                    <input type="hidden" name="product_name" value="{{ product['name'] }}">
+                    <input type="hidden" name="product_price" value="{{ product['price'] }}">
+                    <button type="submit" class="btn btn-success">Add to cart</button>
+                </form>
+                  
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{%endblock%}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{%block title%}Register{%endblock%}
+{%block content%}
+<div class="container" style="width: 40%;margin-bottom: 100px;">
+  <h2 class="text-center text-success"><b>Register</b></h2>
+  <form class="needs-validation" novalidate method="POST" action="/register">
+      <!-- Họ tên -->
+      <div class="mb-3">
+          <label for="fullName" class="form-label">Full of Name</label>
+          <input type="text" class="form-control" id="fullName" name="fullName" required>
+          <div class="invalid-feedback">
+              Please enter your full of name.
+          </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+          <div class="invalid-feedback">
+              Please enter a valid email.
+          </div>
+      </div>
+
+      <!-- Tài khoản -->
+      <div class="mb-3">
+          <label for="username" class="form-label">Account</label>
+          <input type="text" class="form-control" id="username" name="username" required>
+          <div class="invalid-feedback">
+              Please enter username.
+          </div>
+      </div>
+
+      <!-- Mật khẩu -->
+      <div class="mb-3">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+          <div class="invalid-feedback">
+              Please enter password.
+          </div>
+      </div>
+
+      <!-- Nhập lại mật khẩu -->
+      <div class="mb-5">
+          <label for="confirmPassword" class="form-label">Confirm password</label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+          <div class="invalid-feedback">
+              ConfirmPassword is incorrect.
+          </div>
+      </div>
+
+      <!-- Nút đăng ký -->
+      <button type="submit" class="btn btn-success d-block mx-auto mb-3">Register</button>
+      <a href="/login" class="text-success text-center d-block">You have an account?, Login!</a>
+  </form>
+</div>
+{%endblock%}

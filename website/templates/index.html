@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{%block title%}Home{%endblock%}
+{%block content%}
+      <!--Header-->
+      <div id="carouselExampleCaptions" class="carousel slide mt-2" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='images/slide1.png') }}" class="d-block img-fluid" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Diverse plants</h4>
+              <p>Every plants for your green space</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='images/slide2.png') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>Free Shipping</h4>
+              <p>Free shipping for orders from $150</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='images/slide3.png') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h4>100% Back money</h4>
+              <p>If the plant is not as described
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+<!--Giới thiệu-->
+<div class="container" style="margin-top: 150px; margin-bottom: 100px;">
+  <div class="row">
+      <!-- Bên trái (4 cột) -->
+      <div class="col-md-4">
+          <div class="p-3">
+              <p class="text-success" style="font-size: 30px;"><Strong>
+                Are you wondering when choosing the right tree for you?
+                Don't worry!</Strong></p>
+                <a class="btn btn-success" href="/about" role="button">Ask for help!</a>
+          </div>
+      </div>
+
+      <!-- Bên phải (8 cột) -->
+      <div class="col-md-8">
+          <div class="p-3" >
+              <p style="font-size: 20px;"><b>Echeveria:</b> 
+                This plant is often grown in homes, offices, and used in feng shui. It can help purify indoor air and bring luck to the homeowner.</p>
+              <p style="font-size: 20px;"><b>Cactus: </b> They are desert plants that thrive in hot, dry conditions, but they can also make excellent houseplants. Succulents are easy to maintain and require less care than many other houseplants, making them ideal for those with little gardening experience and suitable as housewarming gifts.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+<!--Bộ sưu tập-->
+<div class="container mt-5 "><h3><b class="text-success">Collection</b></h3></div>
+<div class="container mt-5">
+  <div class="row">
+      <!-- Cột 1 -->
+      <div class="col-md-4">
+        <div class="card border-3 border-success">
+          <img src="{{ url_for('static', filename='images/cactus1.jpg') }}" alt="">
+          <div class="card-body">
+            <h5 class="card-title"><strong>Cactus</strong></h5>
+            <p class="card-text">Diverse kinds of Cactus</p>
+            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-success" href="/shop">
+              See more
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Cột 2 -->
+      <div class="col-md-4">
+        <div class="card  border-3 border-success ">
+          <img src="{{ url_for('static', filename='images/senda1.jpg') }}" alt="">
+          <div class="card-body">
+            <h5 class="card-title"><strong>Echeveria</strong></h5>
+            <p class="card-text">Diverse kinds of Echeveria</p>
+            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-success" href="/shop">
+              See more
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Cột 3 -->
+      <div class="col-md-4">
+        <div class="card  border-3 border-success">
+          <img src="{{ url_for('static', filename='images/chau.png') }}" alt="">
+          <div class="card-body">
+            <h5 class="card-title"><strong>Mini succulent planter</strong></h5>
+            <p class="card-text"> Good quality mini succulent planter</p>
+            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover text-success" href="/shop">
+              See more
+            </a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!--Phản hồi-->
+<div class="container " style="margin-top: 100px;margin-bottom:50px;"><h3><b class="text-success">Reviews</b></h3></div>
+<div class="container" style="margin-bottom: 100px;" >
+  <div class="row">
+    <!-- Card Phản Hồi -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/avatar1.jpg') }}" class="card-img-top rounded-circle" alt="Avatar" style="width: 70px; height: 70px;padding: 10px;">
+        <div class="card-body">
+          <h4>Jenny Lincy</h4>
+          <p class="card-text text-muted">"Tiny Oasis's cacti are great. I will visit next time. The best service I have tried"</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/avatar2.jpg') }}" class="card-img-top rounded-circle" alt="Avatar" style="width: 70px; height: 70px;padding: 10px;">
+        <div class="card-body">
+          <h4>Lucas Preta</h4>
+          <p class="card-text text-muted">"Stone lotus is so colorful, you should have one to decorate your room"</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/avatar3.jpg') }}" class="card-img-top rounded-circle" alt="Avatar" style="width: 70px; height: 70px;padding: 10px;">
+        <div class="card-body">
+          <h4>Sarah Jimmy</h4>
+          <p class="card-text text-muted">"Good delivery service, consultants are also great, will come back in the future"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{%endblock%}

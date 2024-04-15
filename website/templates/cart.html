@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+   Account Info
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <h2 class="my-5 text-success">Shopping Cart</h2>
+        <table class="table table-bordered">
+            <thead class="text-success">
+                <tr>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Quantity</th>
+                    <th>Price to Pay</th>
+                    <th></th> <!-- Thêm cột cho nút "Delete" -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for product_code, product_info in cart_items.items() %}
+                <tr>
+                    <td>{{ product_code }}</td>
+                    <td>{{ product_info['product_name'] }}</td>
+                    <td>${{ product_info['product_price'] }}</td>
+                    <td>{{ product_info['quantity'] }}</td>
+                    <td>${{ product_info['price_to_pay'] }}</td>
+                    <td>
+                        <form action="/delete_from_cart" method="POST">
+                            <input type="hidden" name="product_code" value="{{ product_code }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-end"><strong class="text-success">Total</strong></td>
+                    <td>${{ total_price }}</td>
+                    <td></td> <!-- Thêm ô trống để cân đối với các cột khác -->
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <button type="button" class="btn btn-success mb-5 mt-5 mx-auto d-block"><a href="/payment" style="text-decoration: none; color: #fff;">Orders</a></button>
+</body>
+{% endblock %}

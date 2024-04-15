@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ product['name'] }}
+{% endblock %}
+
+{% block content %}
+
+    {% if product %}
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <img src="{{ url_for('static', filename='images/'+product['image_path']) }}" class="img-fluid" alt="{{ product['name'] }}" style="width: 300px; height: 300px">
+                </div>
+                <div class="col-md-4">
+                    <h2>{{ product['name'] }}</h2>
+                    <p>Giá: ${{ product['price'] }}</p>
+                    <p>{{ product['description'] }}</p>
+                    <div class="input-group mb-3 mt-3" style="width:180px" >
+                        <span class="input-group-text">Quantity</span>
+                        <input type="number" class="form-control" value="1" min="1" aria-label="Số lượng" aria-describedby="basic-addon2">
+                        
+                    </div>
+                    <a href="#" class="btn btn-success">Add to cart</a>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    {% else %}
+        <p>This product is unavailable</p>
+    {% endif %}
+{% endblock %}

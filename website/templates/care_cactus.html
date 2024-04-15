@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ product['name'] }}
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container mt-5 mb-4">
+      <div class="row">
+        <div class="col">
+        <h2 class="mb-4 text-success" style="width:100%; text-align: center;">Cách chăm sóc cây xương rồng để bàn</h2>
+          <p style="width:100%; text-align: center;"><em>Đăng ngày 11/02/2023 bởi Van Thuy Dang</em></p>
+          <img  class="img-fluid mb-3 mt-3" src="{{ url_for('static', filename='images/care_cactus.png') }}" alt="cacti">
+          <div class="post-content">
+            <p>Xương rồng ngày nay đã trở nên phổ biến trong cuộc sống hàng ngày của chúng ta. Chúng có thể được thấy ở nhiều nơi và dễ dàng chăm sóc. Xương rồng là loại cây gai góc nhưng lại mang vẻ đẹp khó cưỡng. Tuy nhiên, để cây luôn tươi tốt và khỏe mạnh, cần phải biết cách chăm sóc. Dưới đây là một số chỉ dẫn để chăm sóc cây xương rồng để bàn.</p>
+            
+            <h4>Giới thiệu về cây xương rồng để bàn</h4>
+            <p>Xương rồng thích ứng với môi trường khô cằn như sa mạc, thường mọc ở những vùng đất khô nóng. Loại cây xương rồng hiếm khi nở hoa và ít hoa, nhưng mỗi bông hoa đều rất đẹp. Mỗi loại xương rồng có hình dạng và màu sắc hoa khác nhau, tạo ra sự đa dạng và hấp dẫn.</p>
+  
+            <h4>Cách chăm sóc cây xương rồng để bàn - Chú ý đất trồng cây xương rồng</h4>
+            <p>Đất trồng xương rồng chủ yếu là hỗn hợp các vật liệu vô cơ như cát, sỏi, đá bọt và/hoặc đá trân châu. Do thoát nước tốt, chúng rất lý tưởng để trồng xương rồng. Và rất tốt cho việc trồng cây vì nó mô phỏng môi trường bản địa mà những loài thực vật sa mạc này quen phát triển.</p>
+            
+            <h4>Tưới nước cho cây xương rồng</h4>
+            <p>Xương rồng là loại cây thích hợp với môi trường khô hạn như sa mạc, vì vậy lượng nước cung cấp cho cây rất quan trọng. Cần tưới nước đều đặn nhưng đảm bảo không làm cây bị ngâm nước.</p>
+  
+            <h4>Thay đất và bón phân cho cây xương rồng</h4>
+            <p>Sau vài tháng, cần thay đất và bổ sung phân cho cây xương rồng để đảm bảo cây phát triển tốt và không bị thiếu hụt chất dinh dưỡng.</p>
+  
+            <h4>Ánh sáng và không khí trong chăm sóc cây xương rồng</h4>
+            <p>Xương rồng cần ít nhất 50% ánh sáng mặt trời hoặc 6 giờ ánh sáng mỗi ngày để phát triển khỏe mạnh. Nếu đặt trong nhà, cần đảm bảo cây được tiếp xúc với ánh sáng tự nhiên đủ lượng.</p>
+  
+            <h4>Kỹ thuật trồng cây xương rồng</h4>
+            <p>Giai đoạn đầu trồng cây xương rồng đòi hỏi sự cẩn thận và tỉ mỉ. Cần đảm bảo cây được chăm sóc đúng cách từ khi nảy mầm cho đến khi trưởng thành.</p>
+            <img  class="img-fluid mb-3 mt-3" src="{{ url_for('static', filename='images/care_cactus2.png') }}" alt="cacti">
+            <a href="/tips/care_senda" class="text-success mb-5">Cách chăm sóc sen đá -></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+{% endblock %}

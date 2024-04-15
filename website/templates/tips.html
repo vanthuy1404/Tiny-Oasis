@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+   Tips
+{% endblock %}
+{%block content%}
+<div class="container">
+    <h1 class="text-center text-success mt-5 mb-4">Mẹo</h1>
+    <img  class="img-fluid mb-3 mt-3" src="{{ url_for('static', filename='images/tips.png') }}" alt="tips">
+    <div class="row">
+        <div class="col-12">
+            <div class="post-card">
+                <div class="card-body">
+                    <h2 class="card-title text-success">Cách chăm sóc xương rồng</h2>
+                    <p class="card-text">Chăm sóc cây xương rồng không quá phức tạp. Hãy đặt cây nơi có ánh sáng tốt, tưới nước khi đất hoàn toàn khô, và bón phân ít ỏi 1-2 lần mỗi năm. Cây ưa thích môi trường ấm áp, tuy nhiên chịu được nhiệt độ rộng. Chọn chậu có lỗ thoát nước tốt và thay đất 2-3 năm/lần. Cẩn thận với gai nhọn và quan sát cây thường xuyên để phát hiện dấu hiệu bất thường. Với những lưu ý đơn giản này, bạn có thể dễ dàng sở hữu những cây xương rồng khỏe mạnh và đẹp mắt.</p>
+                    <a href="/tips/care_cactus" class="text-success mb-5">Xem chi tiết -></a>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="card-body">
+                    <h2 class="card-title text-success">Cách chăm sóc sen đá</h2>
+                    <p class="card-text">Chăm sóc sen đá không quá phức tạp. Hãy đặt cây nơi có ánh sáng tốt, tưới nước khi đất hoàn toàn khô, và bón phân ít ỏi 1-2 lần mỗi năm. Cây ưa thích môi trường ấm áp, tuy nhiên chịu được nhiệt độ rộng. Chọn chậu có lỗ thoát nước tốt và thay đất 1-2 năm/lần. Cẩn thận với lá cây dễ rụng và quan sát cây thường xuyên để phát hiện dấu hiệu bất thường. Với những lưu ý đơn giản này, bạn có thể dễ dàng sở hữu những cây sen đá khỏe mạnh và đẹp mắt.</p>
+                    <a href="/tips/care_senda" class="text-success mb-5">Xem chi tiết -></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

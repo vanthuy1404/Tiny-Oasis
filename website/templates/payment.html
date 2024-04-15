@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+   Payment
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <h2 class="my-5 text-success">Payment Information</h2>
+        <h3 class="my-3 text-success">Products in Cart:</h3>
+        <table class="table table-bordered">
+            <thead class="text-success">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price to Pay</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product_code, product_info in cart_items.items() %}
+                <tr>
+                    <td>{{ product_info['product_name'] }}</td>
+                    <td>{{ product_info['quantity'] }}</td>
+                    <td>${{ product_info['price_to_pay'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3 class="my-3 text-success">User Information:</h3>
+        <p><strong>ID:</strong> {{ session['users'][0]['id'] }}</p>
+        <p><strong>Full Name:</strong> {{ session['users'][0]['full_name'] }}</p>
+        <p><strong>Email:</strong> {{ session['users'][0]['email'] }}</p>
+        
+    
+        
+        <h3 class="my-3 text-success">Total Price:</h3>
+        <p>${{ total_price }}</p>
+    </div>
+    <form action="/submit_order" method="POST">
+        <input type="hidden" name="user_id" value="{{ session['users'][0]['id'] }}">
+        <h3 class="my-3 text-success" style="margin-left: 80px;">Shipping Address:</h3>
+        <input type="text" name="address" value="" placeholder="Input your address" style="padding: 5px; width: 30%;margin-left: 80px;" required>
+        <input type="hidden" name="total_price" value="{{ total_price }}">
+        {% for product_code, product_info in cart_items.items() %}
+            <input type="hidden" name="product_code[]" value="{{ product_code }}">
+            <input type="hidden" name="quantity[]" value="{{ product_info['quantity'] }}">
+            <input type="hidden" name="price_to_pay[]" value="{{ product_info['price_to_pay'] }}">
+        {% endfor %}
+        <input type="submit" class="btn btn-success mb-5 mt-5 mx-auto d-block" value="Orders">
+    </form>
+</body>
+{% endblock %}

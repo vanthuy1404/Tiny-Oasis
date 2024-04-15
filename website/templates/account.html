@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+   Account Info
+{% endblock %}
+
+{% block content %}
+<body>
+    <h2 class="card-title text-center text-success mb-5 mt-2">Account Information</h2>
+    <div class="container mb-5">
+        <div style="display: flex; justify-content: center;">
+            <table style="width: 500px; border: 1px solid #ccc;">
+                <thead>
+                    <tr>
+                        <th style="text-align: start; border: 1px solid #ccc; padding: 8px; background-color: #f0f0f0;">Attribute</th>
+                        <th style="text-align: start; border: 1px solid #ccc; padding: 8px; background-color: #f0f0f0;">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">ID:</td>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">{{ session['users'][0]['id'] }}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">Full Name:</td>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">{{ session['users'][0]['full_name'] }}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">Username:</td>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">{{ session['users'][0]['username'] }}</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">Email:</td>
+                        <td style="text-align: start; border: 1px solid #ccc; padding: 8px;">{{ session['users'][0]['email'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mb-3">
+        <button onclick="logout()" class="btn btn-success">Logout</button>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = "/logout";
+        }
+    </script>
+</body>
+{% endblock %}

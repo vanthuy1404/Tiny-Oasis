@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{%block title%}Login{%endblock%}
+{%block content%}
+<div class="container " style="width:40%; margin-top: 7%; margin-bottom: 100px">
+  <h2 class="text-center text-success"><b>Login</b></h2>
+  <form class="needs-validation" novalidate method="POST">
+      <!-- Tài khoản -->
+      <div class="mb-3">
+          <label for="username" class="form-label">User name</label>
+          <input type="text" class="form-control" id="username" name="username" required>
+          <div class="invalid-feedback">
+              Please enter your username.
+          </div>
+      </div>
+
+      <!-- Mật khẩu -->
+      <div class="mb-5">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+          <div class="invalid-feedback">
+              Please enter your password.
+          </div>
+      </div>
+      <!-- Nút đăng nhập -->
+      <button type="submit" class="btn btn-success d-block mx-auto mb-3">Login</button>
+      <a href="/register" class="text-success text-center d-block">You don't have an account?, Register now!</a>
+  </form>
+</div>
+{%endblock%}
