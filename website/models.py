@@ -188,16 +188,22 @@ def create_table_order():
 
     conn.commit()
     conn.close()
-# create_table_order()
+create_table_order()
 def drop_table_orders():
     conn = sqlite3.connect('tiny.db')
     cursor = conn.cursor()
     cursor.execute('DROP TABLE IF EXISTS orders')
     conn.commit()
     conn.close()
-
+def drop_table_order_details():
+    conn = sqlite3.connect('tiny.db')
+    cursor = conn.cursor()
+    cursor.execute('DROP TABLE IF EXISTS order_details')
+    conn.commit()
+    conn.close()
 # Gọi hàm để xóa bảng khi cần
 # drop_table_orders()
+# drop_table_order_details()
 def insert_orders(id, user_address, order_day, total_price):
     conn = sqlite3.connect('tiny.db')
     cursor = conn.cursor()
@@ -223,3 +229,23 @@ def get_last_order_id():
     last_order_id = cursor.fetchone()[0]
     conn.close()
     return last_order_id
+def get_all_orders():
+    conn = sqlite3.connect('tiny.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * from orders')
+    orders = cursor.fetchall()
+    conn.close()
+    return orders
+def get_order_details_by_order_id(order_id):
+    conn = sqlite3.connect('tiny.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * from order_details where order_id = ?',(order_id,))
+    products_order = cursor.fetchall()
+    products_order_list = []
+    for product in products_order:
+        product_dict ={}
+        product_dict['product_code'] =  product[1]
+        product_dict['quantity'] = product[2]
+        product_dict['price_to_pay'] = product[3]
+        products_order_list.append(product_dict)
+    return products_order_list

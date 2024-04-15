@@ -78,7 +78,7 @@ def add_to_cart():
                 'price_to_pay': product_price
             }
         session['cart'] = cart
-    
+        flash('Đã thêm vào giỏ','success')
     return redirect(url_for('views.shop'))
 
 
@@ -100,6 +100,7 @@ def delete_from_cart():
         if product_code in cart:
             del cart[product_code]
         session['cart'] = cart
+        flash('Xóa sản phẩm thành công','success')
     return redirect(url_for('views.cart'))
 @views.route('/payment')
 def payment():
@@ -142,4 +143,4 @@ def submit_order():
         
         flash("Order placed successfully!")
         session.pop('cart', None)
-        return redirect(url_for("views.home"))
+        return redirect(url_for("views.shop"))

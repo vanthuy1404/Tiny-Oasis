@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, flash, jsonify, url_for, session
-from .models import add_users, check_exist_username, delete_user_by_id, get_all_users, get_user_by_id,update_user, get_all_products
+from .models import add_users, check_exist_username, delete_user_by_id, get_all_users, get_user_by_id, update_user,get_all_products, get_all_orders, get_order_details_by_order_id
 import sqlite3
 web_api = Blueprint('web_api',__name__)
 @web_api.route('/users', methods=['GET', 'POST'])
@@ -95,3 +95,17 @@ def delete_product():
     conn.commit()
     conn.close()
     return jsonify({"message": "Product deleted successfully"}), 200
+@web_api.route('/orders',methods = ['GET'])
+def get_orders():
+    orders = get_all_orders()
+    orders_list = []
+    for order in orders:
+        order_dict = {}
+        order_dict['order_id'] = order[0]
+        order_dict['user_id'] = order[1]
+        order_dict['user_address'] = order[2]
+        order_dict['product'] = get_order_details_by_order_id(order[0])
+        order_dict['total_price'] = order[4]
+        order_dict['order_day'] = order[3]
+        orders_list.append(order_dict)
+    return jsonify(orders_list), 200
